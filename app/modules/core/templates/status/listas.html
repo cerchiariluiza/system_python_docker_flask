@@ -1,0 +1,58 @@
+{% extends "layouts/dashboard.html" %}
+{% from "macros/_header_dashboard.html" import header_dashboard %}
+{% block title %}Principal{% endblock %}
+{% block dash %}
+  {{header_dashboard(link=url_for('core.novo_status'),title='Status'  )}}
+    <table id="listas" class="table table-bordered table-hover">
+      <thead>
+      <tr>
+        <th>#</th>
+        <th>ATIVO</th>
+        <th>DATA CADASTRO</th>
+        <th>NOME </th>
+        <th>Cor</th>
+        <th></th>
+        <th></th>
+      </tr>
+      </thead>
+      <tbody>
+        {% for item in lista %}
+        <tr>
+          <td>{{item.id}}</td>
+          <td>{% if item.ativo %}SIM {% else %} NÂO {% endif %}</td>
+          <td>{{item.data_criacao.strftime('%d-%m-%Y %H:%M')}}</td>
+          <td>{{item.nome}}</td>
+          <i class="la la-remove" ></i>
+          <td>
+            {% for ret in item.retorno_status %}
+              <div class="list-group">
+                <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                  <div class="d-flex w-100 justify-content-between">
+                    <h6 class="mb-1">
+                        {{ret.parametro.url.url}}
+                    </h6>
+                    <small> ATIVO {% if ret.ativo %} 
+                      <span class="badge badge-pill ml-3" style="background: {{item.cor}};color:white;font-size:1.2em;"> SIM </span>  {% else %}
+                      <span class="badge badge-pill ml-3" style="background: red;color:white;font-size:1.2em;"> NAO </span> {% endif %}
+                    </small>
+                    <small> {{ret.parametro.nome}}</small >
+                    <small> {{ret.valor_retorno}}</small>
+                  </div>
+                </a>
+                {% endfor %}
+              </div>
+          </td>
+          <td><span class="badge badge-pill" style="background: {{item.cor}};color:{{item.cor_fonte}};font-size:1.2em;">{{item.sigla}}</span></td>
+          <td><a href="{{url_for('core.status_edicao',id=item.id)}}" class="btn btn-block btn-outline-info btn-sm"><i class="nav-icon fas fa-edit"></i> EDITAR</a></td>
+        </tr>
+      {% endfor %}
+      </tfoot>
+    </table>
+{% endblock %}
+{% block js_dash %}
+<script>
+    $(function () {
+      $('#listas').DataTable(global_datatable);
+    });
+  </script>
+  {% endblock %}

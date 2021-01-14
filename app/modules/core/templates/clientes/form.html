@@ -1,0 +1,116 @@
+{% extends "layouts/dashboard.html" %}
+{% from "macros/_forms.html" import form_card %}
+{% from "macros/_fields.html" import input %}
+{% block title %}Status{% endblock %}
+{% block dash %}
+{% call form_card(form=form,action=request.url,title='Status',url_cancelamento=url_for('core.clientes'),upload=False)  %} 
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12 col-lg-2 col-xl-1 text-center">
+          {{input(form.ativo)}}
+        </div>
+        <div class="col-md-12 col-lg-4 col-xl-5 text-center">
+          {{input(form.nome_completo)}}
+        </div>
+        <div class="col-md-12 col-lg-4 col-xl-2 text-center">
+          {{input(form.cpf_cnpj)}}
+        </div>
+        <div class="col-md-12 col-lg-4 col-xl-2 text-center">
+          {{input(form.data_nascimento)}}
+        </div>
+        <div class="col-md-12 col-lg-4 col-xl-2 text-center">
+          {{input(form.telefone)}}
+        </div>
+    </div>
+    <div class="row mt-2">
+        <div class="col-md-12 col-lg-4 col-xl-4 text-center">
+          
+        </div>
+        <div class="col-md-12 col-lg-4 col-xl-2 text-center">
+          {{input(form.email)}}
+        </div>
+        <div class="col-md-12 col-lg-4 col-xl-2 text-center">
+          {{input(form.valor_pago_exame)}}
+        </div>
+        <div class="col-md-12 col-lg-4 col-xl-2 text-center">
+          {{input(form.cep)}}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 col-lg-4 col-xl-4 text-center">
+          {{input(form.endereco)}}
+        </div>
+        <div class="col-md-12 col-lg-4 col-xl-3 text-center">
+          {{input(form.complemento)}}
+        </div>
+        <div class="col-md-12 col-lg-4 col-xl-2 text-center">
+          {{input(form.bairro)}}
+        </div>
+        <div class="col-md-12 col-lg-4 col-xl-2 text-center">
+          {{input(form.cidade)}}
+        </div>
+        <div class="col-md-12 col-lg-4 col-xl-1 text-center">
+          {{input(form.estado)}}
+        </div>
+    </div>
+      <table id="listas" class="table table-bordered table-hover" style="width: 100%;">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th width="10%">DATA</th>
+            <th>OBS</th>
+            <th>
+              <button type="button" class="btn btn-success btn-sm btn_opcao_add" > 
+                <i class="fas fa-plus mr-3"></i> ADICIONAR
+             </button>
+            </th>
+          </tr>
+          </thead>
+          <tbody>
+            {% for item in form.observacoes %}
+            <tr>
+              <td>{{loop.index -1}}</td>
+              <td>{{item[0](class="form-control form-control-sm",**{'type':'date'})}}</td>
+              <td>
+                {{item[1](class="form-control form-control-sm")}}
+              
+              </td>
+              <td></td>
+            </tr>
+            {% endfor %}
+          </tbody>
+      </table>
+</div>
+{% endcall %}
+{% endblock %}
+{% block js_dash %}
+<script>
+  var tmp =  
+    `{% for item in form.observacoes_ %}
+        <tr>
+          <td>{{loop.index -1}}</td>
+          <td>{{item[0](class="form-control form-control-sm",**{'type':'date'})}}</td>
+          <td>{{item[1](class="form-control form-control-sm")}}</td>
+          <td></td>
+        </tr>
+    {% endfor %}
+  `
+  $(function () {
+      var dt = $('#listas').DataTable(global_datatable);
+      $("#cep").blur(function () {
+        var id_rua="#endereco";
+        var id_bairro="#bairro";
+        var id_cidade=" #cidade";
+        var id_uf="#uf";
+        busca_endereco("#cep", id_rua,id_bairro, id_cidade ,id_uf)
+    });
+    $(document).on("click",".btn_opcao_add",function() {
+          var rd = _.random(100, 40000);
+          var rd_name  =`observacoes-${rd}`;
+          var tmp_novo = _.replace(tmp, new RegExp("observacoes_","g"), rd_name);
+          dt.rows.add($(tmp_novo)).draw(true);
+      });
+      
+  });
+</script>
+{% endblock %}

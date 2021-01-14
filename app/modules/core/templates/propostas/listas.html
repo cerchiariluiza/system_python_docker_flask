@@ -1,0 +1,51 @@
+{% extends "layouts/dashboard.html" %}
+{% from "macros/_forms.html" import form_card %}
+{% from "macros/_header_dashboard.html" import header_dashboard %}
+{% from "macros/_fields.html" import input %}
+{% block title %}Propostas {% endblock %}
+{% block dash %}
+
+{{header_dashboard(link=url_for('core.nova_proposta'),title='Propostas'  )}}
+<div class="container-fluid">
+    <table id="listas" class="table table-bordered table-hover">
+        <thead>
+        <tr>
+          <th>#</th> 
+          <th>PROPOSTA</th>
+          <th>Cliente</th>
+          <th>Nome para contato </th>
+          <th>E-mail</th>
+          <th>Telefone</th>
+          <th>Dia do fechamento</th>
+          <th>Vigência Inicial</th>
+          <th>Vigência Final</th>
+          <th>Dia do fechamento fatura</th>
+          <th>Prazo do vecimento</th>
+          <th>Ações</th>
+          
+        </tr>
+        </thead>
+        <tbody>
+          {% for item in lista %}
+          <tr>
+            <td>{{item.id}}</td>
+            <td>{{item.proposta}}</td>
+            <td>{{item.cliente}}</td>
+            <td>{{item.nome_para_contato}}</td>
+            <td>{{item.email}}</td>
+            <td>{{item.telefone}}</td>
+            <td>{{item.diaFechamento}}</td>
+            <td>{{item.vigenciaInicial}}</td>
+            <td>{{item.vigenciaFinal}}</td>
+            <td>{{item.prazoVencimento}}</td>
+            <td>{{item.PrazoVencimento}}</td>
+         
+       
+          
+            <td><a href="{{url_for('core.produto_edicao',id=item.id)}}" class="btn btn-block btn-outline-info btn-sm"><i class="nav-icon fas fa-edit"></i> EDITAR </a> </td>
+          </tr>
+        {% endfor %}
+        </tfoot>
+      </table>
+</div>
+{% endblock %}

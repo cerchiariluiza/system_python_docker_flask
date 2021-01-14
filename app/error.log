@@ -1,0 +1,53 @@
+[2020-08-12 17:46:44 +0000] [31] [INFO] Starting gunicorn 20.0.4
+[2020-08-12 17:46:44 +0000] [31] [INFO] Listening at: http://0.0.0.0:9001 (31)
+[2020-08-12 17:46:44 +0000] [31] [INFO] Using worker: sync
+[2020-08-12 17:46:44 +0000] [34] [INFO] Booting worker with pid: 34
+[2020-08-12 17:46:44 +0000] [35] [INFO] Booting worker with pid: 35
+[2020-08-12 17:47:18 +0000] [31] [INFO] Handling signal: int
+[2020-08-12 17:47:18 +0000] [35] [INFO] Worker exiting (pid: 35)
+[2020-08-12 17:47:18 +0000] [34] [INFO] Worker exiting (pid: 34)
+[2020-08-12 17:47:18 +0000] [31] [INFO] Shutting down: Master
+[2020-08-12 17:48:04 +0000] [41] [INFO] Starting gunicorn 20.0.4
+[2020-08-12 17:48:04 +0000] [41] [INFO] Listening at: http://0.0.0.0:9001 (41)
+[2020-08-12 17:48:04 +0000] [41] [INFO] Using worker: sync
+[2020-08-12 17:48:04 +0000] [44] [INFO] Booting worker with pid: 44
+[2020-08-12 17:48:04 +0000] [45] [INFO] Booting worker with pid: 45
+[2020-08-12 17:48:08 +0000] [41] [INFO] Handling signal: int
+[2020-08-12 17:48:08 +0000] [45] [INFO] Worker exiting (pid: 45)
+[2020-08-12 17:48:08 +0000] [44] [INFO] Worker exiting (pid: 44)
+[2020-08-12 17:48:08 +0000] [41] [INFO] Shutting down: Master
+[2020-08-12 17:48:52 +0000] [46] [INFO] Starting gunicorn 20.0.4
+[2020-08-12 17:48:52 +0000] [46] [INFO] Listening at: http://0.0.0.0:9001 (46)
+[2020-08-12 17:48:52 +0000] [46] [INFO] Using worker: sync
+[2020-08-12 17:48:52 +0000] [49] [INFO] Booting worker with pid: 49
+[2020-08-12 17:48:52 +0000] [50] [INFO] Booting worker with pid: 50
+[2020-08-12 17:49:06 +0000] [46] [INFO] Handling signal: int
+[2020-08-12 17:49:06 +0000] [50] [INFO] Worker exiting (pid: 50)
+[2020-08-12 17:49:06 +0000] [49] [INFO] Worker exiting (pid: 49)
+[2020-08-12 17:49:06 +0000] [46] [INFO] Shutting down: Master
+[2020-08-12 17:50:08 +0000] [52] [INFO] Starting gunicorn 20.0.4
+[2020-08-12 17:50:08 +0000] [52] [INFO] Listening at: http://0.0.0.0:9001 (52)
+[2020-08-12 17:50:08 +0000] [52] [INFO] Using worker: sync
+[2020-08-12 17:50:08 +0000] [55] [INFO] Booting worker with pid: 55
+[2020-08-12 17:50:08 +0000] [56] [INFO] Booting worker with pid: 56
+[2020-08-12 17:50:09 +0000] [52] [INFO] Handling signal: int
+[2020-08-12 17:50:09 +0000] [55] [INFO] Worker exiting (pid: 55)
+[2020-08-12 17:50:09 +0000] [56] [INFO] Worker exiting (pid: 56)
+[2020-08-12 17:50:09 +0000] [52] [INFO] Shutting down: Master
+[2020-08-12 17:50:38 +0000] [62] [INFO] Starting gunicorn 20.0.4
+[2020-08-12 17:50:38 +0000] [62] [INFO] Listening at: http://0.0.0.0:9001 (62)
+[2020-08-12 17:50:38 +0000] [62] [INFO] Using worker: sync
+[2020-08-12 17:50:38 +0000] [65] [INFO] Booting worker with pid: 65
+[2020-08-12 17:50:38 +0000] [66] [INFO] Booting worker with pid: 66
+[2020-08-12 17:51:18 +0000] [62] [INFO] Handling signal: int
+[2020-08-12 17:51:18 +0000] [65] [INFO] Worker exiting (pid: 65)
+[2020-08-12 17:51:19 +0000] [62] [INFO] Shutting down: Master
+[2020-08-12 17:56:53 +0000] [80] [INFO] Starting gunicorn 20.0.4
+[2020-08-12 17:56:53 +0000] [80] [INFO] Listening at: http://0.0.0.0:9001 (80)
+[2020-08-12 17:56:53 +0000] [80] [INFO] Using worker: sync
+[2020-08-12 17:56:53 +0000] [83] [INFO] Booting worker with pid: 83
+[2020-08-12 17:56:53 +0000] [84] [INFO] Booting worker with pid: 84
+[2020-08-12 17:57:38 +0000] [80] [INFO] Handling signal: int
+[2020-08-12 17:57:38 +0000] [84] [INFO] Worker exiting (pid: 84)
+[2020-08-12 17:57:38 +0000] [83] [INFO] Worker exiting (pid: 83)
+[2020-08-12 17:57:38 +0000] [80] [INFO] Shutting down: Master

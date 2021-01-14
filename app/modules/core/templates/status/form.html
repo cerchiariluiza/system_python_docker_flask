@@ -1,0 +1,36 @@
+{% extends "layouts/dashboard.html" %}
+{% from "macros/_forms.html" import form_card %}
+{% from "macros/_fields.html" import input %}
+{% block title %}Status{% endblock %}
+{% block dash %}
+{% call form_card(form=form,action=request.url,title='Status',url_cancelamento=url_for('core.todos_status'),upload=False)  %} 
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12 col-lg-2 col-xl-1 text-center">
+          {{input(form.ativo)}}
+        </div>
+        <div class="col-md-12 col-lg-4 col-xl-1 text-center">
+          {{input(form.sigla)}}
+        </div>
+        <div class="col-md-12 col-lg-4 col-xl-2 text-center">
+          {{input(form.nome)}}
+        </div>
+        <div class="col-md-12 col-lg-4 col-xl-2 text-center">
+          {{input(form.cor)}}
+        </div>
+        <div class="col-md-12 col-lg-4 col-xl-2 text-center">
+          {{input(form.cor_fonte)}}
+        </div>
+        <div class="col-md-12 col-lg-4 col-xl-4 text-center">
+          {{input(form.descricao)}}
+        </div>
+    </div>
+</div>
+{% endcall %}
+{% endblock %}
+{% block js_dash %}
+<script>
+    $(function () {
+    });
+</script>
+{% endblock %}

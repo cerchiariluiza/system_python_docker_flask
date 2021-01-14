@@ -1,0 +1,114 @@
+{% extends "layouts/base.html" %}
+{% from "macros/_messages.html" import  messages_views %}
+{% block html_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='plugins/jsconfirm/jquery-confirm.min.css') }}" >
+<link rel="stylesheet" href="{{ url_for('static', filename='plugins/overlayScrollbars/css/OverlayScrollbars.min.css') }} ">
+<link rel="stylesheet" href="{{ url_for('static', filename='plugins/pace-progress/themes/black/pace-theme-flat-top.css') }} ">
+<link rel="stylesheet" href="{{ url_for('static', filename='plugins/select2/css/select2.min.css') }} ">
+<link rel="stylesheet" href="{{ url_for('static', filename='plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css') }} ">
+{% endblock %}
+{% block content %}
+{% include 'components/header.html' %}
+{% include 'components/sidebar-left.html' %}
+{% set breadcrumb = [] %}
+<div class="content-wrapper">
+    <div class="container-fluid">
+      {{messages_views()}}
+      {% block dash %}{% endblock %}
+    </div>
+</div>
+<footer class="main-footer">
+    <div class="float-right d-none d-sm-inline">
+      
+    </div>
+    <strong>Copyright &copy;  {{now.strftime('%Y')}} <a href="#">{{APP}} </a>.</strong> All rights reserved.
+  </footer>
+{% endblock %}
+{% block js_extensao %}
+<script src="{{ url_for('static', filename='plugins/lodash.js') }}"></script>
+<script src="{{ url_for('static', filename='plugins/bind.min.js') }}"></script>
+<script src="{{ url_for('static', filename='plugins/select2/js/select2.full.min.js') }}"></script>
+<script src="{{ url_for('static', filename='plugins/jsconfirm/jquery-confirm.min.js') }}"></script>
+<script src="{{ url_for('static', filename='plugins/datatables/jquery.dataTables.js') }}"></script>
+<script src="{{ url_for('static', filename='plugins/ColReorderWithResize.js') }}"></script>
+
+<!-- <script src="{{ url_for('static', filename='app/script-a.js') }}" type="module"></script> -->
+{% endblock %} 
+{% block js %}
+<script src="{{ url_for('static', filename='plugins/ColReorderWithResize.js') }}"></script>
+<script src="{{ url_for('static', filename='app/BASE.js') }}"></script>
+<script src="{{ url_for('static', filename='app/modals.js') }}"></script>
+<script>
+
+
+
+function getIndicesOf(searchStr, str, caseSensitive) {
+    var searchStrLen = searchStr.length;
+    if (searchStrLen == 0) {
+        return [];
+    }
+    var startIndex = 0, index, indices = [];
+    if (!caseSensitive) {
+        str = str.toLowerCase();
+        searchStr = searchStr.toLowerCase();
+    }
+    while ((index = str.indexOf(searchStr, startIndex)) > -1) {
+        indices.push(index);
+        startIndex = index + searchStrLen;
+    }
+    return indices;
+}
+String.prototype.replaceAt = function(index, replacement) {
+    return this.substr(0, index) + replacement + this.substr(index + replacement.length);
+}
+$(document).ready(function(){
+    $("[select2]").select2();
+    
+});
+function checkforms(form){
+    console.log(form);
+
+    // var inputs = document.getElementsByClassName('required');
+}
+$(function () {
+    var base_js_confirm = {
+        theme:'material',
+        type:'blue',
+        buttons: {
+                apagar: {
+                text: 'SIM',
+                btnClass: 'btn-blue',
+                action: function(){
+                  tr.remove();
+                    
+                }
+            }
+        }
+    }
+
+});
+(function ($) {
+   
+    $.fn.serializeFormJSON = function () {
+        var o = {};
+        var a = this.serializeArray();
+        $.each(a, function () {
+            if (o[this.name]) {
+                if (!o[this.name].push) {
+                    o[this.name] = [o[this.name]];
+                }
+                o[this.name].push(this.value || '');
+            } else {
+                o[this.name] = this.value || '';
+            }
+        });
+        return o;
+    };
+})(jQuery);
+</script>
+{% block js_dash %}
+{% endblock %}
+
+{% endblock %}

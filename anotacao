@@ -1,0 +1,21 @@
+RODAR O PROJETO
+flask run -h 0
+
+# docker-compose.exe up -d
+docker exec -it  nome_container bash
+---> flask run -h 0
+
+#VERIFICAR CERTIFICADO 
+
+#PRODUCAO
+gunicorn --bind 0.0.0.0:5000 wsgi:app
+
+
+TESTAR UM MODULO
+modules/tests/test_planos.py::test_novo_credito_usuario
+
+celery -A celery_worker.celery worker --loglevel=info --beat
+#NORMAL RUN 
+celery -A celery_worker.celery worker --beat
+#DEBUG CELERY 
+celery -A celery_worker.celery worker --loglevel=info --beat -l debug
