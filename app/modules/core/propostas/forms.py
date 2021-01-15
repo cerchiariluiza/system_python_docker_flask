@@ -24,3 +24,6 @@ class PropostasForm(BaseForm):
     vigencia_final = DateField('Data da vigência Final',render_kw={'maxlength':'255'},validators=[validators.DataRequired()])
     dia_vencimento = SelectField('Dia do vencimento',choices=[('15','15'),('30','30')],validators=[validators.DataRequired()] ,coerce=str)
     prazo_vencimento =  StringField('Prazo do Fechamento',render_kw={'maxlength':'255'},validators=[validators.DataRequired()])
+    horas_mes = StringField('',render_kw={'maxlength':'255','type':'number'})
+    frequencia = SelectField('',choices=[('mensal','Mensal'),('bimestral','Bimestral'),('trimestral','Trimestral'),('semestral','Semestral')],validators=[validators.DataRequired()] ,coerce=str)
+    total_cumulativo =StringField('',render_kw={'maxlength':'255','type':'number'})
