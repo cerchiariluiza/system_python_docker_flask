@@ -6,6 +6,7 @@
 {% block dash %}
 
 {{header_dashboard(link=url_for('core.nova_proposta'),title='Propostas'  )}}
+
 <div class="container-fluid">
     <table id="listas" class="table table-bordered table-hover">
         <thead>
@@ -37,12 +38,12 @@
             <td>{{item.dia_fechamento}}</td>
             <td>{{item.vigencia_inicial}}</td>
             <td>{{item.vigencia_final}}</td>
+            <td>{{item.dia_vencimento}}</td>
             <td>{{item.prazo_vencimento}}</td>
-            <td>{{item.Prazo_vencimento}}</td>
          
        
           
-            <td><a href="{{url_for('core.produto_edicao',id=item.id)}}" class="btn btn-block btn-outline-info btn-sm"><i class="nav-icon fas fa-edit"></i> EDITAR </a> </td>
+            <td><a href="{{url_for('core.proposta_edicao',id=item.id)}}" class="btn btn-block btn-outline-info btn-sm"><i class="nav-icon fas fa-edit"></i> EDITAR </a> </td>
           </tr>
         {% endfor %}
         </tfoot>

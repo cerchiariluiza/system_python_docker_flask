@@ -19,3 +19,8 @@ celery -A celery_worker.celery worker --loglevel=info --beat
 celery -A celery_worker.celery worker --beat
 #DEBUG CELERY 
 celery -A celery_worker.celery worker --loglevel=info --beat -l debug
+
+
+rodar banco
+flask db migrate
+flask db upgrade

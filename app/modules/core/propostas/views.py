@@ -14,7 +14,7 @@ routes = []
 def propostas():
     return render_template("propostas/listas.html", lista=Propostas.query.all())
     
-@roles_accepted('admin')
+@roles_accepted('admin', 'estagiario')
 def nova_proposta():
     form = PropostasForm()
     if form.validate_on_submit():
@@ -28,14 +28,14 @@ def nova_proposta():
 
 @roles_accepted('admin','estagiario')
 def proposta_edicao(id):
-    obj = Proposta.query.filter_by(id=id).first_or_404()
-    form = PropostaForm(obj=obj)
+    obj = Propostas.query.filter_by(id=id).first_or_404()
+    form = PropostasForm(obj=obj)
     if form.validate_on_submit():
         form.populate_obj(obj)
         db.session.commit()
         MESSAGES.ATUALIZADO_COM_SUCESSO('Proposta')
-    return render_template('proposta/form.html')
-
+    return render_template('propostas/form.html', form=form)
+#tem estagiario?
 routes.append(dict(rule='propostas/',view_func=propostas, options=dict(methods=['GET','POST'])))
-routes.append(dict(rule='propostas/',view_func=nova_proposta, options=dict(methods=['GET','POST'])))
-routes.append(dict(rule='propostas/<int:id>',view_func=proposta_edicao, options=dict(methods=['GET','POST'])))
+routes.append(dict(rule='proposta/',view_func=nova_proposta, options=dict(methods=['GET','POST'])))
+routes.append(dict(rule='proposta/<int:id>',view_func=proposta_edicao, options=dict(methods=['GET','POST'])))

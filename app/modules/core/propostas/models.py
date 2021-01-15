@@ -11,7 +11,7 @@ class Propostas(BaseModels):
     cliente = db.Column(db.String(125))
     nome_para_contato = db.Column(db.String(125))
     email = db.Column(db.String(125),nullable=False)
-    telefone = db.Column(db.Integer)
+    telefone = db.Column(db.String(100))
     dia_fechamento = db.Column(db.Integer)
     vigencia_inicial = db.Column(db.Date)
     vigencia_final = db.Column(db.Date)

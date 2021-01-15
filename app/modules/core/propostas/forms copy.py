@@ -13,14 +13,13 @@ from wtforms.fields.html5 import DateField,EmailField,URLField,IntegerRangeField
 from modules.core.messages import *
 
 class PropostasForm(BaseForm):
-    proposta = StringField('Número da Proposta')
-    cliente = StringField('Cliente',render_kw={'maxlength':'255'},validators=[validators.DataRequired()])
-    keywords = StringField('Palavras chave', render_kw={"placeholder": "Adicone uma tag "})
-    nome_para_contato = StringField('Nome para contato',render_kw={'maxlength':'255'},validators=[validators.DataRequired()])
+    proposta = StringField('Proposta',render_kw={'readonly': True},default=False)
+    cliente = StringField('Nome do Cliente',render_kw={'maxlength':'255'},validators=[validators.DataRequired()])
+    nome_para_contato = StringField('Nome para contrato',render_kw={'maxlength':'255'},validators=[validators.DataRequired()])
     email = StringField('Email',render_kw={'maxlength':'255'},validators=[validators.DataRequired()])
-    telefone = StringField('Telefone ',render_kw={'maxlength':'255'})
-    dia_fechamento = SelectField('Dia do fechamento', choices=[('selecione','Selecione'),('15','15'),('30','30')],validators=[validators.DataRequired()],coerce=str) 
+    telefone = StringField('Telefone ',render_kw={'maxlength':'255','type':'number'})
+    dia_fechamento = SelectField('Dia do fechamento',choices=[('',''),('15','15'),('30','30')],validators=[validators.DataRequired()],coerce=str) 
     vigencia_inicial = DateField('Dia da vigência Inicial',render_kw={'maxlength':'255'},validators=[validators.DataRequired()])
     vigencia_final = DateField('Data da vigência Final',render_kw={'maxlength':'255'},validators=[validators.DataRequired()])
-    dia_vencimento = SelectField('Dia do vencimento',choices=[('15','15'),('30','30')],validators=[validators.DataRequired()] ,coerce=str)
+    dia_vencimento = StringField('Dia do vencimento',choices=[('',''),('15','15'),('30','30')],validators=[validators.DataRequired()] ,coerce=str)
     prazo_vencimento =  StringField('Prazo do Fechamento',render_kw={'maxlength':'255'},validators=[validators.DataRequired()])

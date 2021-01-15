@@ -10,8 +10,10 @@
         <thead>
         <tr>
           <th>#</th> 
-          <th>ID</th>
+        
           <th>Produto</th>
+          <th>Setor</th>
+          <th>Segmento</th>
   
           <th>Ações</th>
           
@@ -20,9 +22,11 @@
         <tbody>
           {% for item in lista %}
           <tr>
-              <th>#</th>
+           
             <td>{{item.id}}</td>
             <td>{{item.nome}}</td>
+            <td>{{item.setor}}</td>
+            <td>{{item.segmento}}</td>
   
          
        
