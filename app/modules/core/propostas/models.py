@@ -8,7 +8,6 @@ from modules.core.models import BaseModels
 class Propostas(BaseModels):
     id = db.Column(db.Integer, primary_key=True)
     proposta = db.Column(db.String(125), nullable=False)
-    cliente = db.Column(db.String(125))
     nome_para_contato = db.Column(db.String(125))
     email = db.Column(db.String(125),nullable=False)
     telefone = db.Column(db.String(100))
@@ -17,7 +16,8 @@ class Propostas(BaseModels):
     vigencia_final = db.Column(db.Date)
     dia_vencimento = db.Column(db.Integer)
     prazo_vencimento =  db.Column(db.String(40))
-
+    #cliente
+    cliente_id = db.Column(db.Integer, db.ForeignKey('clientes.id'))
 
     horas_mes_investigacao =  db.Column(db.String(40))
     horas_mes_ri =  db.Column(db.String(40))
@@ -39,8 +39,9 @@ class Propostas(BaseModels):
     total_cumulativo_consultoria =  db.Column(db.String(40))
     total_cumulativo_investigacao =  db.Column(db.String(40))
     total_cumulativo_pentest =  db.Column(db.String(40))
-    
-    
+    cliente = db.relationship('Clientes', backref='proposta', lazy=True)
+  
+
 
 
 

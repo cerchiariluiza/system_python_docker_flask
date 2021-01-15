@@ -13,7 +13,6 @@ from wtforms.fields.html5 import DateField,EmailField,URLField,IntegerRangeField
 from modules.core.messages import *
 
 class ClientesForm(BaseForm):
-    exames = BooleanField('Exames',default=False)
     nome_completo = StringField('Nome Completo',render_kw={'maxlength':'255'},validators=[validators.DataRequired()])
     cpf_cnpj = StringField('CPF/CNPJ',render_kw={'maxlength':'255','type':'number'},validators=[validators.DataRequired()])
     telefone = StringField('Telefone',render_kw={'maxlength':'255','type':'number'},validators=[validators.DataRequired()])
@@ -27,4 +26,4 @@ class ClientesForm(BaseForm):
     observacoes = FieldList(FieldList(StringField(""),min_entries=2),min_entries=1)
     observacoes_ = FieldList(FieldList(StringField(""),min_entries=2),min_entries=1)
     email = EmailField('Email',render_kw={'maxlength':'255','type':'email'},validators=[validators.DataRequired()])
-    valor_pago_exame = DecimalField('Valor Pago',render_kw={'maxlength':'255'})
+    

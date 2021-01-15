@@ -9,12 +9,13 @@
       <thead>
       <tr>
         <th>#</th>
-        <th>ATIVO</th>
-        <th>Data Cadastro</th>
+       
         <th>Nome Completo </th>
         <th>Celular</th>
         <th>Cidade</th>
         <th>UF</th>
+        <th>ATIVO</th>
+        <th>Data Cadastro</th>
         <th></th>
       </tr>
       </thead>
@@ -22,12 +23,13 @@
         {% for item in lista %}
         <tr>
           <td>{{item.id}}</td>
-          <td>{% if item.ativo %}SIM {% else %} NÂO {% endif %}</td>
-          <td>{{item.data_criacao.strftime('%d-%m-%Y %H:%M')}}</td>
+         
           <td>{{item.nome_completo}}</td>
           <td>{{item.telefone}}</td>
           <td>{{item.cidade}}</td>
           <td>{{item.estado}}</td>
+          <td>{% if item.ativo %}SIM {% else %} NÂO {% endif %}</td>
+          <td>{{item.data_criacao.strftime('%d-%m-%Y %H:%M')}}</td>
           <td><a href="{{url_for('core.cliente_edicao',id=item.id)}}" class="btn btn-block btn-outline-info btn-sm"><i class="nav-icon fas fa-edit"></i> EDITAR </a> </td>
         </tr>
       {% endfor %}

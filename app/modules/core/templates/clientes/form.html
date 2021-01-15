@@ -29,9 +29,7 @@
         <div class="col-md-12 col-lg-4 col-xl-2 text-center">
           {{input(form.email)}}
         </div>
-        <div class="col-md-12 col-lg-4 col-xl-2 text-center">
-          {{input(form.valor_pago_exame)}}
-        </div>
+    
         <div class="col-md-12 col-lg-4 col-xl-2 text-center">
           {{input(form.cep)}}
         </div>
@@ -53,33 +51,7 @@
           {{input(form.estado)}}
         </div>
     </div>
-      <table id="listas" class="table table-bordered table-hover" style="width: 60%;">
-        <thead>
-          <tr>
-            <th>#</th>
-            <th width="10%">DATA</th>
-            <th>OBS</th>
-            <th>
-              <button type="button" class="btn btn-success btn-sm btn_opcao_add" > 
-                <i class="fas fa-plus mr-3"></i> ADICIONAR
-             </button>
-            </th>
-          </tr>
-          </thead>
-          <tbody>
-            {% for item in form.observacoes %}
-            <tr>
-              <td>{{loop.index -1}}</td>
-              <td>{{item[0](class="form-control form-control-sm",**{'type':'date'})}}</td>
-              <td>
-                {{item[1](class="form-control form-control-sm")}}
-              
-              </td>
-              <td></td>
-            </tr>
-            {% endfor %}
-          </tbody>
-      </table>
+     
 </div>
 {% endcall %}
 {% endblock %}

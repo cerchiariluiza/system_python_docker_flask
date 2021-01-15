@@ -6,15 +6,18 @@ from wtforms_alchemy import Unique,ModelForm
 from wtforms.widgets import ListWidget, RadioInput,CheckboxInput
 from modules.core.forms import BaseForm
 from modules.core.clientes.models import Clientes
+from modules.core.auth.models import User
 from wtforms import PasswordField, StringField, SubmitField, ValidationError,SelectField,Form,FloatField,DateField
 from wtforms_alchemy.fields import QuerySelectField,QuerySelectMultipleField
 from wtforms import DecimalField, RadioField,FileField,FieldList,FormField,SelectMultipleField, BooleanField,StringField,PasswordField, validators,SelectField,IntegerField,RadioField,HiddenField,TextAreaField
 from wtforms.fields.html5 import DateField,EmailField,URLField,IntegerRangeField
 from modules.core.messages import *
 
+
+# este u é normal?
 class PropostasForm(BaseForm):
     proposta = StringField('Número da Proposta')
-    cliente = StringField('Cliente',render_kw={'maxlength':'255'},validators=[validators.DataRequired()])
+    cliente = QuerySelectField( label=u"cliente", get_pk=lambda x: x.id, query_factory=lambda: Clientes.query,get_label=lambda item: item.nome_completo)
     keywords = StringField('Palavras chave', render_kw={"placeholder": "Adicone uma tag "})
     nome_para_contato = StringField('Nome para contato',render_kw={'maxlength':'255'},validators=[validators.DataRequired()])
     email = StringField('Email',render_kw={'maxlength':'255'},validators=[validators.DataRequired()])
