@@ -35,7 +35,7 @@ def cliente_edicao(id):
         form.populate_obj(obj)
         db.session.commit()
         MESSAGES.ATUALIZADO_COM_SUCESSO('Cliente')
-    return render_template('clientes/form.html')
+    return render_template('clientes/form.html', form=form)
 
 
 

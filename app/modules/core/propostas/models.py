@@ -12,11 +12,11 @@ class Propostas(BaseModels):
     nome_para_contato = db.Column(db.String(125))
     email = db.Column(db.String(125),nullable=False)
     telefone = db.Column(db.Integer)
-    diaFechamento = db.Column(db.Integer)
-    vigenciaInicial = db.Column(db.Date)
-    vigenciaFinal = db.Column(db.Date)
-    diaVencimento = db.Column(db.Integer)
-    prazoVencimento =  db.Column(db.String(40))
+    dia_fechamento = db.Column(db.Integer)
+    vigencia_inicial = db.Column(db.Date)
+    vigencia_final = db.Column(db.Date)
+    dia_vencimento = db.Column(db.Integer)
+    prazo_vencimento =  db.Column(db.String(40))
 
 
 

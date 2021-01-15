@@ -9,6 +9,8 @@ from modules.core.models import BaseModels
 class Produtos(BaseModels):
     id = db.Column(db.String(125), primary_key=True)
     nome = db.Column(db.String(125))
+    segmento= db.Column(db.String(125))
+    setor= db.Column(db.String(125))
   
 
  

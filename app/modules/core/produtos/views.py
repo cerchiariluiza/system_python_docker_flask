@@ -34,7 +34,7 @@ def produto_edicao(id):
         form.populate_obj(obj)
         db.session.commit()
         MESSAGES.ATUALIZADO_COM_SUCESSO('Produto')
-    return render_template('produtos/form.html')
+    return render_template('produtos/form.html', form=form)
 
 routes.append(dict(rule='produtos/',view_func=produtos, options=dict(methods=['GET','POST'])))
 routes.append(dict(rule='produto/',view_func=novo_produto, options=dict(methods=['GET','POST'])))
