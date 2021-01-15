@@ -19,6 +19,30 @@ class Propostas(BaseModels):
     prazo_vencimento =  db.Column(db.String(40))
 
 
+    horas_mes_investigacao =  db.Column(db.String(40))
+    horas_mes_ri =  db.Column(db.String(40))
+    horas_mes_anal_contra_int =  db.Column(db.String(40))
+    horas_mes_consultoria =  db.Column(db.String(40))
+    horas_mes_investigacao =  db.Column(db.String(40))
+    horas_mes_pentest =  db.Column(db.String(40))
+
+    frequencia_investigacao =  db.Column(db.String(40))
+    frequencia_ri =  db.Column(db.String(40))
+    frequencia_anal_contra_int =  db.Column(db.String(40))
+    frequencia_consultoria =  db.Column(db.String(40))
+    frequencia_investigacao =  db.Column(db.String(40))
+    frequencia_pentest =  db.Column(db.String(40))
+
+    total_cumulativo_investigacao =  db.Column(db.String(40))
+    total_cumulativo_ri =  db.Column(db.String(40))
+    total_cumulativo_anal_contra_int =  db.Column(db.String(40))
+    total_cumulativo_consultoria =  db.Column(db.String(40))
+    total_cumulativo_investigacao =  db.Column(db.String(40))
+    total_cumulativo_pentest =  db.Column(db.String(40))
+    
+    
+
+
 
    
     

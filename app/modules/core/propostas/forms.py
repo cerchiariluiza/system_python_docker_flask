@@ -24,6 +24,40 @@ class PropostasForm(BaseForm):
     vigencia_final = DateField('Data da vigência Final',render_kw={'maxlength':'255'},validators=[validators.DataRequired()])
     dia_vencimento = SelectField('Dia do vencimento',choices=[('15','15'),('30','30')],validators=[validators.DataRequired()] ,coerce=str)
     prazo_vencimento =  StringField('Prazo do Fechamento',render_kw={'maxlength':'255'},validators=[validators.DataRequired()])
-    horas_mes = StringField('',render_kw={'maxlength':'255','type':'number'})
-    frequencia = SelectField('',choices=[('mensal','Mensal'),('bimestral','Bimestral'),('trimestral','Trimestral'),('semestral','Semestral')],validators=[validators.DataRequired()] ,coerce=str)
-    total_cumulativo =StringField('',render_kw={'maxlength':'255','type':'number'})
+
+
+    #investigacao
+    horas_mes_investigacao = StringField('',render_kw={'maxlength':'255','type':'number'})
+    frequencia_investigacao = SelectField('',choices=[('mensal','Mensal'),('bimestral','Bimestral'),('trimestral','Trimestral'),('semestral','Semestral')],validators=[validators.DataRequired()] ,coerce=str)
+    total_cumulativo_investigacao =StringField('',render_kw={'maxlength':'255','type':'number'})
+
+    #Análise de malware
+    horas_mes_anal_malware = StringField('',render_kw={'maxlength':'255','type':'number'})
+    frequencia_anal_malware = SelectField('',choices=[('mensal','Mensal'),('bimestral','Bimestral'),('trimestral','Trimestral'),('semestral','Semestral')],validators=[validators.DataRequired()] ,coerce=str)
+    total_cumulativo_anal_malware =StringField('',render_kw={'maxlength':'255','type':'number'})
+
+    #Análise de contra inteligencia
+    horas_mes_anal_contra_int = StringField('',render_kw={'maxlength':'255','type':'number'})
+    frequencia_anal_contra_int = SelectField('',choices=[('mensal','Mensal'),('bimestral','Bimestral'),('trimestral','Trimestral'),('semestral','Semestral')],validators=[validators.DataRequired()] ,coerce=str)
+    total_cumulativo_anal_contra_int =StringField('',render_kw={'maxlength':'255','type':'number'})
+
+    #pentest
+    horas_mes_pentest = StringField('',render_kw={'maxlength':'255','type':'number'})
+    frequencia_pentest = SelectField('',choices=[('mensal','Mensal'),('bimestral','Bimestral'),('trimestral','Trimestral'),('semestral','Semestral')],validators=[validators.DataRequired()] ,coerce=str)
+    total_cumulativo_pentest =StringField('',render_kw={'maxlength':'255','type':'number'})
+
+    # ri
+    horas_mes_ri = StringField('',render_kw={'maxlength':'255','type':'number'})
+    frequencia_ri = SelectField('',choices=[('mensal','Mensal'),('bimestral','Bimestral'),('trimestral','Trimestral'),('semestral','Semestral')],validators=[validators.DataRequired()] ,coerce=str)
+    total_cumulativo_ri =StringField('',render_kw={'maxlength':'255','type':'number'})
+
+    
+    #treinamento
+    horas_mes_treinamento = StringField('',render_kw={'maxlength':'255','type':'number'})
+    frequencia_treinamento = SelectField('',choices=[('mensal','Mensal'),('bimestral','Bimestral'),('trimestral','Ttreinamentomestral'),('semestral','Semestral')],validators=[validators.DataRequired()] ,coerce=str)
+    total_cumulativo_treinamento =StringField('',render_kw={'maxlength':'255','type':'number'})
+
+    #consultoria
+    horas_mes_consultoria = StringField('',render_kw={'maxlength':'255','type':'number'})
+    frequencia_consultoria= SelectField('',choices=[('mensal','Mensal'),('bimestral','Bimestral'),('trimestral','Ttreinamentomestral'),('semestral','Semestral')],validators=[validators.DataRequired()] ,coerce=str)
+    total_cumulativo_consultoria =StringField('',render_kw={'maxlength':'255','type':'number'})
